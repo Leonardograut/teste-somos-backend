@@ -23,4 +23,6 @@ public class Medico {
     @Column(name = "nm_especialidade", nullable = false, length = 100)
     private String especialidade;
 
+
+
 }
