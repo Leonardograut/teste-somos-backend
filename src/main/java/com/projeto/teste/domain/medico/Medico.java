@@ -1,7 +1,10 @@
 package com.projeto.teste.domain.medico;
 
+import com.projeto.teste.domain.consulta.Consulta;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "medicos")
@@ -23,6 +26,7 @@ public class Medico {
     @Column(name = "nm_especialidade", nullable = false, length = 100)
     private String especialidade;
 
-
+    @OneToMany(mappedBy = "medico", fetch = FetchType.LAZY)
+    private List<Consulta> consultas;
 
 }

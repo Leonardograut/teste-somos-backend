@@ -23,12 +23,10 @@ public class Consulta{
     @Column(name = "cd_consulta")
     private Long id;
 
-    // Relacionamento com Paciente
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_paciente", nullable = false, foreignKey = @ForeignKey(name = "fk_consulta_paciente"))
     private Paciente paciente;
 
-    // Relacionamento com Medico
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cd_medico", nullable = false, foreignKey = @ForeignKey(name = "fk_consulta_medico"))
     private Medico medico;

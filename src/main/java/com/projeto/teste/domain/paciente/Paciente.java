@@ -1,9 +1,11 @@
 package com.projeto.teste.domain.paciente;
 
+import com.projeto.teste.domain.consulta.Consulta;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "pacientes")
@@ -27,4 +29,7 @@ public class Paciente {
 
     @Column(name = "dt_nascimento", nullable = false)
     private LocalDate dataNascimento;
+
+    @OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
+    private List<Consulta> consultas;
 }
